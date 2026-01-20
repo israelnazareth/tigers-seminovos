@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Footer from "../_components/Footer/Footer";
 import { ContactModal } from "../_components/ContactModal/ContactModal";
 import VehicleDetailModal from "../_components/VehicleDetailModal/VehicleDetailModal";
 import { vehicles, type Body, type Vehicle } from "@/lib/vehicles";

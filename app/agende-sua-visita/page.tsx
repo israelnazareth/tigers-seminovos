@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Footer from "../_components/Footer/Footer";
 import styles from "./page.module.css";
 import Image from "next/image";
 

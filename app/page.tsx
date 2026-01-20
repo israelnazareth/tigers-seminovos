@@ -6,7 +6,6 @@ import type { Swiper as SwiperType } from "swiper";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import Footer from "./_components/Footer/Footer";
 import CreditAnalysis from "./_components/CreditAnalysis/CreditAnalysis";
 import styles from "./page.module.css";
 import Link from "next/link";
