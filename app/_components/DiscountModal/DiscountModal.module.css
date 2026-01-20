@@ -1,0 +1,265 @@
+.modalMinimized {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  background-color: #dc2626;
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+.modalMinimized:hover {
+  background-color: #b91c1c;
+}
+
+.modalMinimizedIcon {
+  font-size: 1.5rem;
+}
+
+.modalMinimizedText {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateY(-50%) translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+.formCard {
+  position: fixed;
+  left: 1rem;
+  top: 6rem;
+  background-color: #dc2626;
+  width: 280px;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  z-index: 50;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: white;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.formTitle {
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.formDiscount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #facc15;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.vehicleImage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.vehicleImg {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.25rem;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formInput,
+.formSelect {
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 0.25rem;
+  padding: 0 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.875rem;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.formSelect option {
+  background-color: #dc2626;
+  color: white;
+}
+
+.formInput:disabled,
+.formSelect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formButton {
+  width: 100%;
+  height: 2.75rem;
+  background-color: #facc15;
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.formButton:hover:not(:disabled) {
+  background-color: #eab308;
+}
+
+.formButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #dc2626;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.successContent {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.successIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: white;
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.successTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.successText {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .formCard {
+    left: 3rem;
+    top: 5rem;
+    width: 320px;
+    padding: 1.5rem;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+
+  .formDiscount {
+    font-size: 1.75rem;
+  }
+
+  .vehicleImg {
+    max-width: 240px;
+  }
+}
