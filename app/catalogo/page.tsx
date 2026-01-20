@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ContactModal } from "../_components/ContactModal/ContactModal";
 import VehicleDetailModal from "../_components/VehicleDetailModal/VehicleDetailModal";
@@ -9,6 +9,14 @@ import styles from "./page.module.css";
 import Image from "next/image";
 
 export default function CatalogPage() {
+  return (
+    <Suspense fallback={<div className={styles.pageTitle}>Carregando...</div>}>
+      <CatalogPageContent />
+    </Suspense>
+  );
+}
+
+function CatalogPageContent() {
   const searchParams = useSearchParams();
   const allVehicles = useMemo(() => vehicles, []);
 
