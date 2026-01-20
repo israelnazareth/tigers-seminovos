@@ -1,0 +1,202 @@
+.pageSection {
+  padding-top: 6rem;
+  min-height: calc(100vh - 80px);
+  position: relative;
+  overflow: hidden;
+}
+
+.mosaicBackground {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+}
+
+.mosaicGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+}
+
+.mosaicImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mosaicOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.contentContainer {
+  position: relative;
+  padding: 0 1.5rem 2.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.formColumn {
+  padding-top: 0;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.formRowMargin {
+  margin-top: 0.75rem;
+}
+
+.formInput {
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 0.75rem;
+  color: white;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.storeSection {
+  margin-top: 1.5rem;
+}
+
+.storeSelect {
+  height: 2.5rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 0.75rem;
+  color: white;
+}
+
+.submitButton {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 2.75rem;
+  background-color: white;
+  color: black;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.middleColumn {
+  display: none;
+  padding-top: 6rem;
+}
+
+.middleTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  max-width: 32rem;
+}
+
+.middleText {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #fff;
+  max-width: 32rem;
+  line-height: 1.4;
+}
+
+.sideColumn {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 3rem;
+}
+
+.sideImageContainer {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+}
+
+.sideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.footerWrapper {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .pageSection {
+    padding-top: 7rem;
+  }
+
+  .formTitle {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .formRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .contentContainer {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formColumn {
+    padding-top: 3rem;
+  }
+
+  .middleColumn {
+    display: block;
+  }
+
+  .sideColumn {
+    display: flex;
+  }
+}
