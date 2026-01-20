@@ -1,15 +1,15 @@
-# Tigers Seminovos
+# 🐯 Tigers Seminovos
 
 Projeto desenvolvido como um site institucional para uma loja fictícia de veículos seminovos, construído com Next.js 16 e React 19.
 
-## Como Rodar o Projeto
+## 🚀 Como Rodar o Projeto
 
-### Pré-requisitos
+### 📋 Pré-requisitos
 
 - Node.js 18.17 ou superior
 - npm, yarn, pnpm ou bun
 
-### Instalação
+### 📦 Instalação
 
 ```bash
 # Clone o repositório
@@ -20,7 +20,7 @@ cd tigers-seminovos
 npm install
 ```
 
-### Executando em Desenvolvimento
+### 💻 Executando em Desenvolvimento
 
 ```bash
 npm run dev
@@ -28,20 +28,20 @@ npm run dev
 
 Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-### Build de Produção
+### 🏗️ Build de Produção
 
 ```bash
 npm run build
 npm start
 ```
 
-### Lint
+### 🔍 Lint
 
 ```bash
 npm run lint
 ```
 
-### Testes
+### 🧪 Testes
 
 ```bash
 # Rodar todos os testes
@@ -54,7 +54,7 @@ npm run test:watch
 npm run test:coverage
 ```
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 app/
@@ -81,15 +81,15 @@ __tests__/
 └── lib/                  # Testes da biblioteca de dados
 ```
 
-## Decisões Técnicas
+## 🎯 Decisões Técnicas
 
 ### Next.js App Router
 
 Optei pelo App Router (em vez do Pages Router) por ser a abordagem mais recente e recomendada pelo Next.js, oferecendo:
-- Server Components por padrão
-- Layouts aninhados
-- Metadata API para SEO
-- Route Groups para organização
+- ⚡ Server Components por padrão
+- 📐 Layouts aninhados
+- 🔎 Metadata API para SEO
+- 📂 Route Groups para organização
 
 ### Organização de Pastas
 
@@ -100,10 +100,10 @@ Optei pelo App Router (em vez do Pages Router) por ser a abordagem mais recente 
 ### CSS Modules
 
 Escolhi CSS Modules ao invés de Tailwind ou styled-components por:
-- Zero runtime (CSS puro)
-- Escopo local por padrão (sem conflitos de classes)
-- Fácil manutenção e leitura
-- Não requer configuração adicional
+- 🚫 Zero runtime (CSS puro)
+- 🔒 Escopo local por padrão (sem conflitos de classes)
+- 📖 Fácil manutenção e leitura
+- ⚙️ Não requer configuração adicional
 
 ### Tipagem com TypeScript
 
@@ -122,36 +122,36 @@ Essa abordagem foi necessária porque as páginas usam `"use client"` e não pod
 - **Client Components** (`"use client"`): Usados nas páginas com interatividade (filtros, modais, carrossel)
 - **Server Components**: Layouts que exportam metadata
 
-## Funcionalidades Implementadas
+## ✨ Funcionalidades Implementadas
 
-### Página Inicial
-- Carrossel de banners com Swiper.js (autoplay, fade effect)
-- Cards de categorias de veículos
-- Seção de vídeo institucional
-- Componente de análise de crédito
+### 🏠 Página Inicial
+- 🎠 Carrossel de banners com Swiper.js (autoplay, fade effect)
+- 🚗 Cards de categorias de veículos
+- 🎬 Seção de vídeo institucional
+- 💳 Componente de análise de crédito
 
-### Catálogo
-- Listagem de veículos com paginação
-- Filtros: marca, modelo, cor, blindagem, ano, carroceria
-- Busca por texto
-- Modal de solicitação de cotação ao clicar em "Solicitar"
+### 📋 Catálogo
+- 📃 Listagem de veículos com paginação
+- 🔧 Filtros: marca, modelo, cor, blindagem, ano, carroceria
+- 🔍 Busca por texto
+- 📝 Modal de solicitação de cotação ao clicar em "Solicitar"
 
-### Agende sua Visita
-- Formulário de agendamento
-- Seleção de data e horário
-- Integração visual com o restante do site
+### 📅 Agende sua Visita
+- ✍️ Formulário de agendamento
+- 🕐 Seleção de data e horário
+- 🎨 Integração visual com o restante do site
 
-### Componentes Globais
-- Header responsivo com navegação
-- Footer com informações de contato
-- Botão flutuante do WhatsApp
-- Modal de desconto (minimizável)
+### 🌐 Componentes Globais
+- 📱 Header responsivo com navegação
+- 📧 Footer com informações de contato
+- 💬 Botão flutuante do WhatsApp
+- 🏷️ Modal de desconto (minimizável)
 
-## Testes
+## 🧪 Testes
 
 O projeto conta com uma suíte de testes abrangente usando Jest e React Testing Library.
 
-### Cobertura de Testes
+### 📊 Cobertura de Testes
 
 | Categoria | Arquivos | Testes |
 |-----------|----------|--------|
@@ -160,13 +160,13 @@ O projeto conta com uma suíte de testes abrangente usando Jest e React Testing 
 | Biblioteca | 1 | ~20 |
 | **Total** | **12** | **~172** |
 
-### O que está sendo testado
+### ✅ O que está sendo testado
 
 - **Páginas**: Renderização, interatividade, navegação e validação de formulários
 - **Componentes**: Props, estados, eventos e acessibilidade
 - **Biblioteca de veículos**: Validação de dados, tipos e consistência
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 - **Next.js 16** - Framework React com SSR/SSG
 - **React 19** - Biblioteca de UI
@@ -177,6 +177,11 @@ O projeto conta com uma suíte de testes abrangente usando Jest e React Testing 
 - **React Testing Library** - Testes de componentes React
 - **ESLint** - Linting e padronização de código
 
-## Autor
+## 👨‍💻 Autor
 
-Israel - Desenvolvedor Front-end
+<img src="https://github.com/israelnazareth.png" width="100" alt="Israel Nazareth" style="border-radius: 50%;">
+
+**Israel Nazareth** - Desenvolvedor Front-end
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-israelnazareth.com-blue?style=flat-square&logo=google-chrome&logoColor=white)](https://www.israelnazareth.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-israelnazareth-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/israelnazareth)
