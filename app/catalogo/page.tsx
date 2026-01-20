@@ -8,7 +8,7 @@ import { vehicles, type Body, type Vehicle } from "@/lib/vehicles";
 import styles from "./page.module.css";
 import Image from "next/image";
 
-export default function CatalogoPage() {
+export default function CatalogPage() {
   const allVehicles = useMemo(() => vehicles, []);
 
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
