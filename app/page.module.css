@@ -1,0 +1,297 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  fill: #fff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s, color 0.2s;
+  z-index: 5;
+}
+
+.navButton:hover {
+  background-color: #fff;
+  color: #dc2626;
+}
+
+.navButtonPrev {
+  left: 1rem;
+}
+
+.navButtonNext {
+  right: 1rem;
+}
+
+.swiper {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.swiperSlide {
+  height: 100% !important;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slideContent {
+  position: absolute;
+  bottom: 4rem;
+  left: 1rem;
+  z-index: 5;
+  max-width: 20rem;
+}
+
+.slideBadge {
+  display: inline-block;
+  background-color: #facc15;
+  color: black;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slideTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.slideSubtitle {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  font-weight: 600;
+}
+
+.categorySection {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  grid-template-areas:
+    "util"
+    "suv"
+    "hatch"
+    "sedan";
+}
+
+.categoryLink {
+  text-decoration: none;
+}
+
+.categoryLink:nth-child(1) {
+  grid-area: util;
+}
+
+.categoryLink:nth-child(2) {
+  grid-area: suv;
+}
+
+.categoryLink:nth-child(3) {
+  grid-area: sedan;
+}
+
+.categoryLink:nth-child(4) {
+  grid-area: hatch;
+}
+
+.categoryCard {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.categoryImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.categoryCard:hover .categoryImage {
+  transform: scale(1.08);
+}
+
+.categoryOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.categoryLabel {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.categoryButton {
+  border: 2px solid white;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.categoryButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.videoSection {
+  position: relative;
+  width: 100%;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.premiumSection {
+  position: relative;
+  height: 360px;
+}
+
+.premiumImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .categorySection {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "util suv"
+      "hatch sedan";
+  }
+
+  .categoryCard {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .categorySection {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "util suv sedan"
+      "util hatch sedan";
+  }
+
+  .categoryLink:nth-child(1) .categoryCard,
+  .categoryLink:nth-child(3) .categoryCard {
+    height: 100%;
+  }
+
+  .categoryCard {
+    height: 280px;
+  }
+
+  .categoryLabel {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .navButton {
+    font-size: 1.875rem;
+  }
+
+  .navButtonPrev {
+    left: 2.5rem;
+  }
+
+  .navButtonNext {
+    right: 2.5rem;
+  }
+
+  .slideContent {
+    bottom: 6rem;
+    left: 3rem;
+    max-width: none;
+  }
+
+  .slideTitle {
+    font-size: 4rem;
+  }
+
+  .slideBadge {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  .categoryCard {
+    height: 320px;
+  }
+
+  .videoContainer {
+    height: 500px;
+  }
+
+  .premiumSection {
+    height: 600px;
+  }
+}
