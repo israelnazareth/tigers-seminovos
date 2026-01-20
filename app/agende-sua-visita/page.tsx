@@ -5,7 +5,7 @@ import Footer from "../_components/Footer/Footer";
 import styles from "./page.module.css";
 import Image from "next/image";
 
-export default function AgendeSuaVisitaPage() {
+export default function SchedulePage() {
   const mosaic = [
     "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=80",
     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
@@ -26,7 +26,6 @@ export default function AgendeSuaVisitaPage() {
   });
 
   const handleSubmit = () => {
-    console.log("Agendar visita:", form);
     const formData = new FormData();
     formData.append("nome", form.nome);
     formData.append("sobrenome", form.sobrenome);
@@ -126,7 +125,6 @@ export default function AgendeSuaVisitaPage() {
               <button
                 type="submit"
                 className={styles.submitButton}
-                onClick={handleSubmit}
               >
                 Agendar visita <span aria-hidden="true">→</span>
               </button>
