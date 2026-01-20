@@ -98,9 +98,7 @@ export default function VehicleDetailModal({
                 src={images[currentIndex]}
                 alt={`${vehicle.name} - Imagem ${currentIndex + 1}`}
                 className={styles.carouselImage}
-                fill
                 sizes="(max-width: 768px) 100vw, 800px"
-                priority
               />
             </div>
 
