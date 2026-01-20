@@ -14,7 +14,25 @@ export const metadata: Metadata = {
   title: {
     template: "%s | Tigers Seminovos",
     default: "Tigers Seminovos",
-  }
+  },
+  description: "Os melhores seminovos com qualidade e procedência garantida. Encontre seu próximo veículo na Tigers Seminovos.",
+
+  openGraph: {
+    title: "Tigers Seminovos",
+    description: "Os melhores seminovos com qualidade e procedência garantida.",
+    url: "https://tigers-seminovos.vercel.app",
+    siteName: "Tigers Seminovos",
+    images: [
+      {
+        url: "https://tigers-seminovos.vercel.app/og-image.png",
+        width: 1920,
+        height: 1080,
+        alt: "Tigers Seminovos",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
