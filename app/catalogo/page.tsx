@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ContactModal } from "../_components/ContactModal/ContactModal";
 import VehicleDetailModal from "../_components/VehicleDetailModal/VehicleDetailModal";
 import { vehicles, type Body, type Vehicle } from "@/lib/vehicles";
@@ -8,6 +9,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 
 export default function CatalogPage() {
+  const searchParams = useSearchParams();
   const allVehicles = useMemo(() => vehicles, []);
 
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
@@ -19,7 +21,22 @@ export default function CatalogPage() {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const bodies: Body[] = ["Hatch", "Moto", "Picape", "Sedan", "SUV", "Utilitario"];
-  const [selectedBodies, setSelectedBodies] = useState<Set<Body>>(new Set());
+  const [selectedBodies, setSelectedBodies] = useState<Set<Body>>(() => {
+    const bodyParam = searchParams.get("body");
+    if (bodyParam && bodies.includes(bodyParam as Body)) {
+      return new Set([bodyParam as Body]);
+    }
+    return new Set();
+  });
+
+  // Sincroniza o filtro de carroceria quando o parâmetro da URL mudar
+  useEffect(() => {
+    const bodyParam = searchParams.get("body");
+    if (bodyParam && bodies.includes(bodyParam as Body)) {
+      setSelectedBodies(new Set([bodyParam as Body]));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   const yearOptions = useMemo(() => {
     return Array.from(new Set(allVehicles.map((vehicle) => vehicle.year))).sort();

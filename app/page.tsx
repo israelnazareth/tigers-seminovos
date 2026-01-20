@@ -36,18 +36,22 @@ const heroSlides = [
 const categoryCards = [
   {
     label: "Utilitários",
+    body: "Utilitario",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
   },
   {
     label: "SUV",
+    body: "SUV",
     img: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1600&q=80",
   },
   {
     label: "Sedan",
+    body: "Sedan",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     label: "Hatch",
+    body: "Hatch",
     img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80",
   },
 ] as const;
@@ -124,7 +128,7 @@ export default function HomePage() {
 
       <section className={styles.categorySection}>
         {categoryCards.map((item) => (
-          <Link href="/catalogo" key={item.label} className={styles.categoryLink}>
+          <Link href={`/catalogo?body=${item.body}`} key={item.label} className={styles.categoryLink}>
             <div className={styles.categoryCard}>
               <Image src={item.img} alt={item.label} className={styles.categoryImage} width={1000} height={1000} />
               <div className={styles.categoryOverlay}>
