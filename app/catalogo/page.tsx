@@ -353,8 +353,6 @@ export default function CatalogPage() {
         </section>
       </section>
 
-      <Footer />
-
       {detailVehicle && (
         <VehicleDetailModal
           vehicle={detailVehicle}

@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import Header from "./_components/Header/Header";
 import { WhatsAppButton } from "./_components/WhatsAppButton/WhatsAppButton";
 import DiscountModal from "./_components/DiscountModal/DiscountModal";
+import Footer from "./_components/Footer/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <DiscountModal />
         <WhatsAppButton />
+        <Footer />
       </body>
     </html>
   );

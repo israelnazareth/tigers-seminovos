@@ -37,6 +37,7 @@ export default function SchedulePage() {
   };
 
   return (
+    <>
     <section className={styles.pageSection}>
       <div className={styles.mosaicBackground}>
         <div className={styles.mosaicGrid}>
@@ -142,10 +143,8 @@ export default function SchedulePage() {
 
         </div>
 
-        <div className={styles.footerWrapper}>
-          <Footer />
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
