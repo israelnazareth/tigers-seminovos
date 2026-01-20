@@ -1,12 +1,14 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { ContactModal } from "../_components/ContactModal/ContactModal";
 import VehicleDetailModal from "../_components/VehicleDetailModal/VehicleDetailModal";
 import { vehicles, type Body, type Vehicle } from "@/lib/vehicles";
 import styles from "./page.module.css";
 import Image from "next/image";
+
+const BODIES: Body[] = ["Hatch", "Moto", "Picape", "Sedan", "SUV", "Utilitario"];
 
 export default function CatalogPage() {
   return (
@@ -18,40 +20,55 @@ export default function CatalogPage() {
 
 function CatalogPageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const allVehicles = useMemo(() => vehicles, []);
+  const isInitialMount = useRef(true);
 
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [detailVehicle, setDetailVehicle] = useState<Vehicle | null>(null);
-  const [selectedMake, setSelectedMake] = useState<string>("");
-  const [selectedModel, setSelectedModel] = useState<string>("");
-  const [selectedColor, setSelectedColor] = useState<string>("");
-  const [selectedArmor, setSelectedArmor] = useState<string>("");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedMake, setSelectedMake] = useState<string>(() => searchParams.get("marca") || "");
+  const [selectedModel, setSelectedModel] = useState<string>(() => searchParams.get("modelo") || "");
+  const [selectedColor, setSelectedColor] = useState<string>(() => searchParams.get("cor") || "");
+  const [selectedArmor, setSelectedArmor] = useState<string>(() => searchParams.get("blindagem") || "");
+  const [searchQuery, setSearchQuery] = useState<string>(() => searchParams.get("busca") || "");
 
-  const bodies: Body[] = ["Hatch", "Moto", "Picape", "Sedan", "SUV", "Utilitario"];
   const [selectedBodies, setSelectedBodies] = useState<Set<Body>>(() => {
-    const bodyParam = searchParams.get("body");
-    if (bodyParam && bodies.includes(bodyParam as Body)) {
-      return new Set([bodyParam as Body]);
-    }
-    return new Set();
+    const bodyParams = searchParams.getAll("body");
+    const validBodies = bodyParams.filter((b) => BODIES.includes(b as Body)) as Body[];
+    return new Set(validBodies);
   });
-
-  // Sincroniza o filtro de carroceria quando o parâmetro da URL mudar
-  useEffect(() => {
-    const bodyParam = searchParams.get("body");
-    if (bodyParam && bodies.includes(bodyParam as Body)) {
-      setSelectedBodies(new Set([bodyParam as Body]));
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
 
   const yearOptions = useMemo(() => {
     return Array.from(new Set(allVehicles.map((vehicle) => vehicle.year))).sort();
   }, [allVehicles]);
 
-  const [yearMin, setYearMin] = useState<string>("");
-  const [yearMax, setYearMax] = useState<string>("");
+  const [yearMin, setYearMin] = useState<string>(() => searchParams.get("anoMin") || "");
+  const [yearMax, setYearMax] = useState<string>(() => searchParams.get("anoMax") || "");
+
+  const updateURL = useCallback(() => {
+    const params = new URLSearchParams();
+
+    if (selectedMake) params.set("marca", selectedMake);
+    if (selectedModel) params.set("modelo", selectedModel);
+    if (selectedColor) params.set("cor", selectedColor);
+    if (selectedArmor) params.set("blindagem", selectedArmor);
+    if (yearMin) params.set("anoMin", yearMin);
+    if (yearMax) params.set("anoMax", yearMax);
+    if (searchQuery) params.set("busca", searchQuery);
+    selectedBodies.forEach((b) => params.append("body", b));
+
+    const queryString = params.toString();
+    const newURL = queryString ? `/catalogo?${queryString}` : "/catalogo";
+    router.replace(newURL, { scroll: false });
+  }, [selectedMake, selectedModel, selectedColor, selectedArmor, yearMin, yearMax, searchQuery, selectedBodies, router]);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    updateURL();
+  }, [updateURL]);
 
   const makeOptions = useMemo(
     () => Array.from(new Set(allVehicles.map((vehicle) => vehicle.make))).sort(),
@@ -248,7 +265,7 @@ function CatalogPageContent() {
             <div className={styles.bodyTypeContainer}>
               <div className={styles.bodyTypeTitle}>Carroceria</div>
               <div className={styles.bodyTypeList}>
-                {bodies.map((b) => {
+                {BODIES.map((b) => {
                   const checked = selectedBodies.has(b);
                   return (
                     <button
